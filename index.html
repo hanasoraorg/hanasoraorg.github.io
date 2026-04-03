@@ -1,9 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>hanasora</title>
-  <head>
-  <body>
-    <h1>HANASORA</h1>
+    <meta charset=UTF-8 />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/raleway.css" />
+    <script src="static/js/three.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <title>HANASORA</title>
+  </head>
+  <body id="body">
+    <div id="flip-card" class="flip-card">
+      <div id="flip-card-inner" class="flip-card-inner">
+        <div id="flip-card-front" class="flip-card-front">
+          <div id="heading" class="heading">HANASORA</div>
+        </div>
+        <div id="flip-card-back" class="flip-card-back">
+          <div id="right" class="right">
+            <div id="button_paths" class="button_paths" style="height: 80%;">
+              <!-- <div class="heading">HANASORA</div> -->
+              <!-- <div class="adastra"> -->
+              <!--   <p> -->
+              <!--      -->
+              <!--   </p> -->
+              <!-- </div> -->
+              <div id="contact" class="contact">
+                <p>
+                  mail 
+                  <br>
+                  &commat; 
+                  <br>
+                  hanasora
+                  .
+                  org
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+
+    function swapdivs(div1id, div2id) {
+      d1 = document.getElementById(div1id);
+      d2 = document.getElementById(div2id);
+      if( d2.style.display == "none" ) {
+        d1.style.display = "none";
+        d2.style.display = "flex";
+      } else {
+        d1.style.display = "flex";
+        d2.style.display = "none";
+      }
+    }
+
+    $('#flip-card-front').on('click', function(event) {
+      if (!($('.flip-card').hasClass('turn'))) {
+        $('.flip-card').toggleClass('turn');
+      }
+    });
+    $('#flip-card-front').on('touchstart', function(event) {
+      if (!($('.flip-card').hasClass('turn'))) {
+        $('.flip-card').toggleClass('turn');
+      }
+    });
+
+    $('#info').on('click', function() {
+      swapdivs('right', 'info');
+      $('#right').toggleClass('hide');
+    });
+
+    $('#info-button').on('click', function() {
+      swapdivs('right', 'info');
+      $('#right').toggleClass('hide');
+    });
+    $('#enter-button').on('click', function() {
+      window.location = '/menu';
+    });
+
+    $('#heading').mouseover(function() {
+      $('.flip-card').toggleClass('turn');
+    });
+
+    $('#front_avatar').mouseover(function() {
+      $('.flip-card').toggleClass('turn');
+    });
+
+    $(document).on('click', function(event) {
+      if (((event.target.id === 'button-wrapper') || (event.target.parentElement.id === 'contact') || (event.target.id === 'right')) && ($('.flip-card').hasClass('turn'))) {
+        $('.flip-card').toggleClass('turn');
+      }
+    });
+    $(document).on('touchstart', function(event) {
+      if (((event.target.id === 'button-wrapper') || (event.target.parentElement.id === 'contact') || (event.target.id === 'right')) && ($('.flip-card').hasClass('turn'))) {
+        $('.flip-card').toggleClass('turn');
+      }
+    });
+
+    $(document).mouseover(function(event) {
+      if (event.target.id === 'body' && $('.flip-card').hasClass('turn')) {
+        $('.flip-card').toggleClass('turn');
+      }
+    });
+
+    function updateOrientation() {
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+      const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      $('body').width(vw);
+      $('body').height(vh);
+      /*
+      window.location.reload();
+      */
+      camera.aspect = vw / vh;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    window.addEventListener('orientationchange', updateOrientation, false);
+    window.addEventListener('resize', updateOrientation, false);
+
+  </script>
+  <script src="static/js/stars.js"></script>
 </html>
