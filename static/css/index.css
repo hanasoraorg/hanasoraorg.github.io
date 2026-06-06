@@ -297,6 +297,7 @@ a {
 }
 
 .privacy-page {
+  display: block;
   min-height: 100vh;
   overflow: auto;
 }
@@ -309,6 +310,12 @@ a {
   border-radius: 28px;
   padding: 32px;
   box-shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
+}
+
+html:has(.privacy-page),
+html:has(.privacy-page) body {
+  overflow: auto;
+  height: auto;
 }
 
 .privacy-wrapper h1,
