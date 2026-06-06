@@ -300,6 +300,12 @@ a {
   display: block;
   min-height: 100vh;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.privacy-page::-webkit-scrollbar {
+  display: none;
 }
 
 .privacy-wrapper {
@@ -316,6 +322,13 @@ html:has(.privacy-page),
 html:has(.privacy-page) body {
   overflow: auto;
   height: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html:has(.privacy-page)::-webkit-scrollbar,
+html:has(.privacy-page) body::-webkit-scrollbar {
+  display: none;
 }
 
 .privacy-wrapper h1,
