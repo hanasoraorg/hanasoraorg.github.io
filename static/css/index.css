@@ -12,6 +12,7 @@ body {
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   font-family: "Raleway", sans-serif;
@@ -27,7 +28,7 @@ body {
 canvas {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 a {
@@ -35,6 +36,8 @@ a {
 }
 
 .site-shell {
+  position: relative;
+  z-index: 1;
   width: min(1120px, calc(100vw - 32px));
   width: min(1120px, calc(100dvw - 32px));
   height: min(780px, calc(100vh - 32px));
@@ -315,6 +318,8 @@ a {
 }
 
 .privacy-wrapper {
+  position: relative;
+  z-index: 1;
   width: min(920px, calc(100vw - 32px));
   margin: 32px auto;
   background: rgba(6, 9, 13, 0.84);
