@@ -1,9 +1,10 @@
 html,
 body {
   margin: 0;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100%;
   overflow: hidden;
+  background: #040506;
 }
 
 * {
@@ -11,6 +12,8 @@ body {
 }
 
 body {
+  min-height: 100vh;
+  min-height: 100dvh;
   font-family: "Raleway", sans-serif;
   color: #f2f2ec;
   background:
@@ -33,7 +36,9 @@ a {
 
 .site-shell {
   width: min(1120px, calc(100vw - 32px));
+  width: min(1120px, calc(100dvw - 32px));
   height: min(780px, calc(100vh - 32px));
+  height: min(780px, calc(100dvh - 32px));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -299,6 +304,7 @@ a {
 .privacy-page {
   display: block;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -322,6 +328,8 @@ html:has(.privacy-page),
 html:has(.privacy-page) body {
   overflow: auto;
   height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -397,6 +405,7 @@ html:has(.privacy-page) body::-webkit-scrollbar {
     width: 100%;
     height: auto;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 16px;
   }
 
@@ -404,6 +413,7 @@ html:has(.privacy-page) body::-webkit-scrollbar {
   .flip-card-front,
   .flip-card-back {
     min-height: calc(100vh - 32px);
+    min-height: calc(100dvh - 32px);
   }
 
   .flip-card-front {
